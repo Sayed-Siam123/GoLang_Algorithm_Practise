@@ -6,10 +6,31 @@ import (
 
 func main() {
 	var a []int
+	var bubbleSortList []int
 
 	a = append(a, 3, 7, 8, 9, 12, 14, 31)
 
-	binarySearch(a, len(a), 31)
+	bubbleSortList = append(bubbleSortList, 3, 7, 31, 14, 12, 8, 9)
+
+	//binarySearch(a, len(a), 31)
+
+	bubbleSort(bubbleSortList, len(bubbleSortList))
+}
+
+func bubbleSort(A []int, n int) {
+	fmt.Println(A)
+	for i := 0; i < n; i++ {
+		for j := 0; j < n-i-1; j++ {
+			if A[j] > A[j+1] {
+				temp := A[j]
+				A[j] = A[j+1]
+				A[j+1] = temp
+			}
+		}
+	}
+
+	fmt.Println(A)
+
 }
 
 func binarySearch(numberList []int, n int, x int) {
